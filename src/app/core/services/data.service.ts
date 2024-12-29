@@ -17,7 +17,7 @@ export interface Client {
   providedIn: 'root'
 })
 export class DataService {
-  private apiUrl = 'http://localhost:8090/api/v1/clientes';
+  private apiUrl = 'https://consult-info-back-production.up.railway.app/api/v1/clientes';
 
   // Guarda la información del cliente seleccionado
   selectedClient: Client | null = null;
