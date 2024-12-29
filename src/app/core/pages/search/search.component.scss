@@ -1,0 +1,52 @@
+:host {
+  .btn-secondary {
+    background-color: #ccc;
+    border-color: #ccc;
+    color: #fff;
+    cursor: not-allowed;
+  }
+
+  .btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #fff;
+  }
+
+  .form-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 0.95rem;
+    height: 40px;
+  }
+
+  .card {
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 12px;
+  }
+
+  .text-danger {
+    font-size: 0.8rem;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .bi {
+    font-size: 2rem;
+    color: #0d6efd;
+  }
+
+  .text-muted {
+    color: #6c757d;
+  }
+
+  .row {
+    margin: 0 -15px;
+  }
+}

@@ -1,0 +1,115 @@
+<div class="container vh-100 d-flex flex-column">
+  <!-- Encabezado con Logo y Título -->
+  <div class="row justify-content-center align-items-center mt-4 mb-5">
+    <div class="col-md-8 text-center">
+      <img
+        src="https://www.credilemon.com/img/logo/co/banco-de-bogota.webp"
+        alt="Banco de Bogotá"
+        class="img-fluid mb-2"
+        style="max-width: 150px;"
+      />
+      <h2 class="fw-bold mt-2">Bienvenido a tu Banca Virtual</h2>
+    </div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="row align-items-center flex-grow-1">
+    <!-- Columna Izquierda: Formulario -->
+    <div class="col-lg-5 d-flex flex-column align-items-center justify-content-center" style="margin-right: 30px;">
+      <div class="card shadow-sm p-4" style="width: 100%; max-width: 400px; border-radius: 12px;">
+        <h5 class="text-muted mb-3 text-center">Consulta por Cedula</h5>
+        <p class="small text-muted">
+          Estás ingresando con tu Clave Segura. Selecciona 'Tarjeta Débito' para cambiar el tipo de ingreso.
+        </p>
+
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+          <!-- Tipo de Documento -->
+          <div class="mb-3">
+            <label for="documentType" class="form-label">Tipo de documento</label>
+            <select id="documentType" class="form-select" formControlName="documentType">
+              <option value="" disabled>Seleccione</option>
+              <option value="C">Cédula de ciudadanía</option>
+              <option value="P">Pasaporte</option>
+            </select>
+          </div>
+    
+          <!-- Número de Documento -->
+          <div class="mb-3">
+            <label for="documentNumber" class="form-label">Número de documento</label>
+            <input
+              id="documentNumber"
+              type="text"
+              class="form-control"
+              formControlName="documentNumber"
+              placeholder="Ej: 1039454860"
+              (input)="onDocumentNumberInput($event)"
+            />
+            <!-- Mensajes de error -->
+            <div *ngIf="documentNumberControl.invalid && documentNumberControl.touched" class="text-danger small mt-1">
+              <div *ngIf="documentNumberControl.hasError('required')">
+                Este campo es obligatorio
+              </div>
+              <div *ngIf="documentNumberControl.hasError('pattern')">
+                Solo se permiten números
+              </div>
+              <div *ngIf="documentNumberControl.hasError('lengthError')">
+                Debe tener entre 8 y 11 dígitos
+              </div>
+            </div>
+          </div>
+
+          <!-- Botón Ingresar -->
+          <button
+            type="submit"
+            class="btn w-100"
+            [class.btn-primary]="searchForm.valid"
+            [class.btn-secondary]="searchForm.invalid"
+            [disabled]="searchForm.invalid"
+          >
+            Ingresar
+          </button>
+        </form>
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+          {{ errorMessage }}
+        </div>
+
+        <!-- Enlaces -->
+        <div class="d-flex justify-content-between mt-3">
+          <a href="#" class="text-decoration-none small">Registrarme</a>
+          <a href="#" class="text-decoration-none small">Olvidé mi clave</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna Derecha: Imagen -->
+    <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center">
+      <img
+        src="https://ftp.mathilde-ads.com/71-850b903897d8b4a63ef609cd4a8b70f3.png"
+        alt="Promoción Banco"
+        class="img-fluid mb-4"
+        style="max-width: 500px; border-radius: 12px;"
+      />
+      <div class="d-flex justify-content-around w-100">
+        <div class="text-center">
+          <i class="bi bi-shield-check" style="font-size: 2rem; color: #0d6efd;"></i>
+          <p class="small">Configuración de seguridad</p>
+        </div>
+        <div class="text-center">
+          <i class="bi bi-box-arrow-in-right" style="font-size: 2rem; color: #0d6efd;"></i>
+          <p class="small">Solicitar un producto</p>
+        </div>
+        <div class="text-center">
+          <i class="bi bi-headset" style="font-size: 2rem; color: #0d6efd;"></i>
+          <p class="small">Atención al cliente</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="row mt-3 text-center">
+    <small class="text-muted">
+      Este sitio está protegido por reCAPTCHA y aplican las políticas de privacidad y los términos de servicio de Google.
+    </small>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <!-- Botón Volver (ícono) -->
+      <div class="d-flex align-items-center mb-3">
+        <button
+          class="btn btn-link p-0 text-decoration-none"
+          (click)="goBack()"
+          style="font-size: 1.5rem; color: #0d6efd;"
+          aria-label="Volver"
+        >
+          <i class="bi bi-arrow-left"></i>
+        </button>
+        <h4 class="ms-3 mb-0">Información básica</h4>
+      </div>
+
+      <!-- Card de información -->
+      <div class="card shadow-sm p-4" style="border-radius: 12px;">
+        <div *ngIf="client">
+          <!-- Primer Apellido -->
+          <div class="mb-3">
+            <label for="lastName" class="form-label text-muted">Primer apellido</label>
+            <input
+              id="lastName"
+              type="text"
+              class="form-control bg-light"
+              [value]="client.firstLastName"
+              readonly
+            />
+          </div>
+
+          <!-- Segundo Apellido -->
+          <div class="mb-3">
+            <label for="secondLastName" class="form-label text-muted">Segundo apellido</label>
+            <input
+              id="secondLastName"
+              type="text"
+              class="form-control bg-light"
+              [value]="client.secondSurname"
+              readonly
+            />
+          </div>
+
+          <!-- Primer Nombre -->
+          <div class="mb-3">
+            <label for="firstName" class="form-label text-muted">Primer nombre</label>
+            <input
+              id="firstName"
+              type="text"
+              class="form-control bg-light"
+              [value]="client.firstName"
+              readonly
+            />
+          </div>
+
+          <!-- Segundo Nombre -->
+          <div class="mb-3">
+            <label for="secondName" class="form-label text-muted">Segundo nombre</label>
+            <input
+              id="secondName"
+              type="text"
+              class="form-control bg-light"
+              [value]="client.secondName"
+              readonly
+            />
+          </div>
+
+          <!-- Teléfono -->
+          <div class="mb-3">
+            <label for="mobile" class="form-label text-muted">Teléfono</label>
+            <input
+              id="mobile"
+              type="text"
+              class="form-control bg-light"
+              [value]="client.mobile"
+              readonly
+            />
+          </div>
+
+          <!-- Dirección -->
+          <div class="mb-3">
+            <label for="address" class="form-label text-muted">Dirección</label>
+            <input
+              id="address"
+              type="text"
+              class="form-control bg-light"
+              [value]="client.address"
+              readonly
+            />
+          </div>
+
+          <!-- Ciudad de Residencia -->
+          <div class="mb-3">
+            <label for="cityResidence" class="form-label text-muted">Ciudad de residencia</label>
+            <input
+              id="cityResidence"
+              type="text"
+              class="form-control bg-light"
+              [value]="client.cityResidence"
+              readonly
+            />
+          </div>
+        </div>
+
+        <!-- Mensaje si no hay cliente -->
+        <div *ngIf="!client" class="text-danger text-center">
+          <p>No se encontró información del cliente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

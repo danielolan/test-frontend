@@ -1,0 +1,17 @@
+[
+    {
+      "documentType": "CC",
+      "documentNumber": "123456789",
+      "name": "Juan Pérez",
+      "address": "Calle 123 # 45 - 67",
+      "phone": "3001234567"
+    },
+    {
+      "documentType": "PAS",
+      "documentNumber": "987654321",
+      "name": "María López",
+      "address": "Av. 10 # 20 - 30",
+      "phone": "3129876543"
+    }
+  ]
+  
